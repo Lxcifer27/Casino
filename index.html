@@ -205,21 +205,40 @@
 			}
 		}
 		@media only screen and (max-width: 900px) {
+			#container {
+				max-width: 100vw;
+				width: calc(100% - 30px);
+				overflow-x: hidden;
+			}
 			.wheel {
 				margin-bottom: 20px;
 			}
+			#betting_board {
+				margin-left: -30px;
+			}
 			.number_block {
-				width: 57px;
+				width: 54.72px;
 			}
 			.bankContainer {
 				left: 515px;
 				width: 30%;
 			}
 			.bo3_block {
-				width: 32.22%;
+				width: 216.3px;
 			}
 			.oto_block {
-				width: 23.9%;
+				width: 160.3px;
+			}
+			#pnContent {
+				width: 92%;
+				height: 85%;
+			}
+			.pnBlock {
+				top: -170px;
+				left: -30px;
+				width: 200px;
+				height: 100px;
+				transform: rotateX(-30deg);
 			}
 		}
 		/* @media only screen and (max-width: 900px) {
