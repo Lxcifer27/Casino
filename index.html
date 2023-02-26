@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Javascript Roulette</title>
+	<meta name="title" content="Javascript Roulette">
+	<meta name="description" content="A fully functioning roulette game made using Javascript and CSS">
+	<meta name="author" content="ozboware">
+	<meta property="og:url" content="/">
+	<meta property="og:title" content="Javascript Roulette">
+	<meta property="og:description" content="A fully functioning roulette game made using Javascript and CSS">
+	<link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+
+	<style type="text/css">
+		#container {
+		    background: linear-gradient(#1F4011, #39701f);
+		    flex-direction: column;
+		    align-items: center;
+		    perspective: 700px;
+		}
+		html, body{
+			background: linear-gradient(#1F4011, #39701f);
+			min-height: 100vh;
+		}
+		#betting_board{
+			transform: rotateX(45deg);
+    		perspective: 600px;
+		}
+		.tt1_block{
+			padding: 4px 0px;
+    		margin-top: -27.75px;
+		}
+		.number_0{
+			padding: 71.5px 20px;
+			margin-left: -54px;
+    		margin-top: -27.516px;
+		}
+		.number_block{
+			padding: 4px 0px;
+			border: 1px solid #F3C620;
+		}
+		.wheel{
+			left: 0px;
+			height: 306px;
+    		width: 306px;
+		}
+		.nbn {
+			text-align: center;
+			font-size: 15px;
+    		font-weight: normal;
+    		letter-spacing: 1px;
+		    transform: rotate(0deg);
+		    -webkit-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -ms-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+		}
+		.spinBtn{
+			margin-top: 0px;
+    		margin-left: 392px;
+    		font-size: 18px;
+    		background-color: #d5b714;
+    		padding: 10px 18px;
+    		border-radius: 12%;
+
+		}
+		.bbtoptwo{
+			font-size: 15px;
+    		font-weight: normal;
+    		padding: 4px 4px;
+		}
+		.bo3_block, .oto_block{
+			font-weight: normal;
+    		font-size: 15px;
+    		padding: 4px 4px;
+    		width: 158.65px;
+		}
+		.oto_block{
+			width: 116.94px;
+		}
+		.number_block .chip {
+		    margin-left: 8px;
+		    margin-top: -21px;
+		}
+		.chip {
+		    width: 18px;
+		    height: 18px;
+		}
+		.chipDeck, .bankContainer{
+			transform: rotateX(-32deg);
+		}
+		.wlcb{
+			width: 486px;
+		}
+		.pnBlock{
+			margin-top: 0px;
+			height: 40px;
+		}
+		.double, .single{
+			font-size: 10px;
+		}
+		.ball{
+			width: 10px;
+    		height: 10px;
+    		left: 117px;
+    		top: -2px;
+
+		}
+		.sect{
+			top: 15px;
+		    left: 15px;
+		    width: 280px;
+		    height: 280px;
+		}
+		.outerRim{
+			left: 4.5px;
+		    top: 4.5px;
+		    width: 280px;
+		    height: 280px;
+		}
+		.pnRed, .pnBlack, .pnGreen{
+			font-size: 16px;
+			padding: 6px;
+		}
+		#pnContent{
+			height: 26px;
+		}
+
+		/* full width betting board */
+			#betting_board {
+				width: 80%;
+			}
+			.number_0 {
+				border: 1px solid;
+				left: 2px;
+				padding: 72px 20px;
+			}
+			.tt1_block {
+				border: 1px solid;
+				right: -67px;
+			}
+			.pnBlock,
+			.bo3_board, .oto_board {
+				width: 100%;
+			}
+			.bo3_block, .oto_block {
+				width: 32.7%;
+			}
+			.oto_block {
+				width: 24.35%;
+			}
+			#pnContent {
+				width: 98.6%;
+			}
+			.number_block {
+				width: 99.94px;
+			}
+			.chipDeck {
+				margin: auto;
+				top: -52px;
+				left: -10px;
+				width: 520px;
+			}
+			.bankContainer {
+				margin: auto;
+				top: -52px;
+				left: 700px;
+				width: 44%;
+			}
+		@media only screen and (max-width: 1500px) {
+			.wheel {
+				margin-bottom: 20px;
+			}
+			.number_block {
+				width: 94.7px;
+			}
+			.bankContainer {
+				left: 600px;
+				width: 50%;
+			}
+			.bo3_block {
+				width: 32.66%;
+			}
+			.oto_block {
+				width: 24.33%;
+			}
+		}
+		@media only screen and (max-width: 1025px) {
+			.wheel {
+				margin-bottom: 20px;
+			}
+			.number_block {
+    			width: 66.9px;
+			}
+			.bankContainer {
+				left: 520px;
+    			width: 38%;
+			}
+			.bo3_block {
+				width: 32.4%;
+			}
+			.oto_block {
+				width: 24.05%;
+			}
+		}
+		@media only screen and (max-width: 900px) {
+			.wheel {
+				margin-bottom: 20px;
+			}
+			.number_block {
+    			width: 49.9px;
+			}
+			.bankContainer {
+				left: 515px;
+				width: 30%;
+			}
+			.bo3_block {
+				width: 32.09%;
+			}
+			.oto_block {
+				width: 23.75%;
+			}
+		}
+		/* @media only screen and (max-width: 900px) {
+			.wheel {
+				margin-bottom: 20px;
+			}
+			.number_block {
+    			width: 64px;
+			}
+			.number_0 {
+				padding: 47px 20px;
+			}
+			.bankContainer {
+				left: 510px;
+			}
+			.oto_block {
+    			width: 24%;
+			}
+			.bo3_block {
+				width: 32.3%;
+			}
+		} */
+	</style>
+</head>
+
+<body>
+	<script src="./assets/js/app.js"></script>
+</body>
+</html>
